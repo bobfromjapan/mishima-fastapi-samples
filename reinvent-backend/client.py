@@ -2,10 +2,10 @@ import requests
 
 num_smiles = 10
 
-url = "https://mishima-fastapi-sample-2-178859831790.asia-northeast1.run.app/"
+url = "https://XXXXXXX"
 
 data = {
-    "conf" :{
+    "conf": {
         "run_type": "sampling",
         "use_cuda": False,
         "json_out_config": "_sampling.json",

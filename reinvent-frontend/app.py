@@ -12,7 +12,6 @@ gen_type_model = {
 }
 
 URL = os.getenv("REINVENT_API_URL")  # "http://localhost:8080/sampling"
-# URL = "https://mishima-fastapi-sample-2-178859831790.asia-northeast1.run.app/sampling"
 
 
 def generate_compounds(
@@ -27,7 +26,7 @@ def generate_compounds(
     conf = {
         "run_type": "sampling",
         "use_cuda": False,
-        "json_out_config": "_sampling.json",  # 必要に応じて設定
+        "json_out_config": "_sampling.json",
         "seed": seed,
         "parameters": {
             "model_file": gen_type_model[gen_type],
@@ -56,7 +55,6 @@ def generate_compounds(
     print(response.json())
     if response.status_code == 200:
         result = response.json()
-        # 'NLL'キーが存在することを確認
         if "results" in result and all(
             "SMILES" in item and "NLL" in item for item in result["results"]
         ):
