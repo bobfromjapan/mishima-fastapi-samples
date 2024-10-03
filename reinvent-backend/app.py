@@ -46,6 +46,7 @@ class Smiles(BaseModel):
 class MultipleSmiles(BaseModel):
     row: List[Smiles]
 
+
 def set_seed(seed: int):
     """Set global seed for reproducibility
 
@@ -69,6 +70,7 @@ def set_seed(seed: int):
 app = FastAPI()
 
 
+# based on https://github.com/MolecularAI/REINVENT4/blob/main/reinvent/Reinvent.py
 @app.post("/sampling")
 async def post(conf: SamplingConf, smiles: MultipleSmiles | None = None):
     run_type = conf.run_type
